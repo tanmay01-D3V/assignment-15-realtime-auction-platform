@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Live Auction Floor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <div class="lobby-panel">
+        <div class="brand">
+          <span class="brand-mark">⚡</span>
+          <div>
+            <p class="eyebrow">LIVE BIDDING</p>
+            <h1>Auction Floor</h1>
+          </div>
+        </div>
+
+        <div class="login-card">
+          <label for="usernameInput">Enter bidder name</label>
+          <input id="usernameInput" type="text" value="Vikram" maxlength="20" />
+          <button id="joinBtn">Join Auction</button>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-box">
+            <span>Room</span>
+            <strong id="roomName">AUC_VINTAGE_99</strong>
+          </div>
+          <div class="stat-box">
+            <span>Viewers</span>
+            <strong id="viewerCount">0</strong>
+          </div>
+          <div class="stat-box">
+            <span>Timer</span>
+            <strong id="timerDisplay">60s</strong>
+          </div>
+        </div>
+      </div>
+
+      <main class="auction-panel">
+        <header class="auction-header">
+          <div>
+            <p class="eyebrow muted">Featured lot</p>
+            <h2 id="auctionTitle">1967 Vintage Fender Stratocaster</h2>
+          </div>
+          <span id="auctionStatus" class="status-pill live">Live</span>
+        </header>
+
+        <div class="price-panel">
+          <div>
+            <p>Current bid</p>
+            <h3 id="currentBid">₹50,000</h3>
+          </div>
+          <div>
+            <p>Highest bidder</p>
+            <h3 id="highestBidder">Waiting for first bid</h3>
+          </div>
+        </div>
+
+        <div class="info-row">
+          <div class="detail-card">
+            <span>Starting price</span>
+            <strong id="startingPrice">₹50,000</strong>
+          </div>
+          <div class="detail-card">
+            <span>Minimum increment</span>
+            <strong id="incrementValue">₹2,000</strong>
+          </div>
+          <div class="detail-card">
+            <span>Time remaining</span>
+            <strong id="timeRemaining">60s</strong>
+          </div>
+        </div>
+
+        <div class="description-box">
+          <p id="auctionDescription">Original condition rare electric guitar</p>
+        </div>
+
+        <div class="action-row">
+          <button class="quick-bid" data-amount="2000">+₹2,000</button>
+          <button class="quick-bid" data-amount="5000">+₹5,000</button>
+          <button class="quick-bid" data-amount="10000">+₹10,000</button>
+        </div>
+
+        <div class="toast" id="toast"></div>
+
+        <section class="history-panel">
+          <h3>Bid history</h3>
+          <ul id="bidHistory"></ul>
+        </section>
+      </main>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/app.js"></script>
+  </body>
+</html>
